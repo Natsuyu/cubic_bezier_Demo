@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="editor">
+		<div class="display">
+			<div class="canvas"></div>
+		</div>
+		<div class="title">
+			<h1 class="func">cubic-bezier</h1>
+			<button class="save">SAVE</button>
+		</div>
+
+		<div class="preview">
+			
+			<div class="wrapper">
+				<div class="control">
+					Duration:<input type="range" min="0.1" max="10" class="duration" value="3" step="0.1"><span class="range-value"></span>s</span>
+					<button class="show">SHOW</button>
+				</div>
+				
+				<div class="compare"></div>
+			</div>
+		</div>
+		<div class="importbox">
+		<button class="import">IMPORT</button>	
+			<div class="import-title">title:<input type="text"></div>
+			<div class="import-item">x1:<input type="text"></div>
+			<div class="import-item">y1:<input type="text"></div>
+			<div class="import-item">x2:<input type="text"></div>
+			<div class="import-item">y2:<input type="text"></div>
+			<div class="import-tip"></div>
+		</div>
+		<div class="library">
+			<h1>Library<h3>Click on a curve to compare it with the current one.</h3></h1>
+			<button class="export">EXPORT</button>
+		</div>
+
+		<div class="cover" contenteditable="true"></div>
+	</div>
+<script type="text/javascript" src="js/bezier-editor.js"></script>
+<script type="text/javascript">
+	$(".editor").bezierEditor();
+</script>
+</body>
+</html>
