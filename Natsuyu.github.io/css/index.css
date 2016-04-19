@@ -1,0 +1,279 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url("iconfont.eot");
+  /* IE9*/
+  src: url("iconfont.eot?#iefix") format("embedded-opentype"), url("iconfont.woff") format("woff"), url("iconfont.ttf") format("truetype"), url("iconfont.svg#iconfont") format("svg");
+  /* iOS 4.1- */ }
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+
+* {
+  margin: 0;
+  padding: 0; }
+  *::selection {
+    background-color: transparent; }
+  *::-moz-selection {
+    background-color: transparent; }
+
+body, html {
+  height: 100%;
+  font-family: 'Hiragino Kaku Gothic Pro', 'Segoe UI', 'Apple Gothic', Tahoma, 'Helvetica Neue', sans-serif;
+  color: #333; }
+
+.editor {
+  position: absolute;
+  background-color: #fff;
+  top: 0px;
+  left: 00px;
+  width: 100%;
+  height: 100%;
+  padding-left: 400px;
+  padding-right: 50px;
+  box-sizing: border-box; }
+  .editor .display {
+    position: absolute;
+    top: 0;
+    left: 50px;
+    width: 310px;
+    background-color: #fff; }
+    .editor .display .canvas {
+      position: absolute;
+      top: 50px;
+      left: 5px;
+      width: 300px;
+      height: 100%; }
+      .editor .display .canvas canvas {
+        position: absolute;
+        top: 0;
+        left: 0; }
+        .editor .display .canvas canvas::selection {
+          background-color: transparent; }
+      .editor .display .canvas span {
+        width: 20px;
+        height: 20px;
+        background-color: #FFF;
+        box-sizing: border-box;
+        border-radius: 50%;
+        border: 1px solid #999;
+        position: absolute; }
+      .editor .display .canvas .control1 {
+        background-color: #e6155a;
+        cursor: pointer; }
+      .editor .display .canvas .control2 {
+        cursor: pointer;
+        background-color: green; }
+  .editor .preview {
+    position: relative;
+    float: left;
+    width: 400px; }
+    .editor .preview input[type="range"] {
+      width: 100px;
+      height: 20px; }
+    .editor .preview .wrapper {
+      width: 400px;
+      height: 300px;
+      margin: 20px 0 0;
+      position: relative; }
+      .editor .preview .wrapper button {
+        margin-left: 20px; }
+  .editor .title {
+    margin-top: 20px;
+    position: relative; }
+  .editor .compare {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 550px;
+    z-index: 999; }
+    .editor .compare canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      background-color: #e6155a; }
+    .editor .compare canvas:last-child {
+      top: 70px;
+      background-color: green; }
+  .editor .library {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    top: -60px; }
+    .editor .library .canvas-item {
+      float: left;
+      margin: 10px;
+      position: relative; }
+      .editor .library .canvas-item span {
+        width: 100px;
+        display: block;
+        text-align: center;
+        transition: all 0.5s;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .editor .library .canvas-item canvas {
+        background-color: #CCC;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.5s; }
+      .editor .library .canvas-item:hover canvas {
+        background-color: rgba(0, 128, 0, 0.3);
+        box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.5); }
+      .editor .library .canvas-item:hover span {
+        font-weight: 500; }
+      .editor .library .canvas-item:hover .close {
+        display: block; }
+      .editor .library .canvas-item canvas.active {
+        background-color: rgba(0, 128, 0, 0.8);
+        box-shadow: 0 0 2px 4px rgba(0, 0, 0, 0.5); }
+        .editor .library .canvas-item canvas.active + span {
+          font-weight: 600;
+          color: green; }
+    .editor .library button {
+      display: block; }
+  .editor .importbox {
+    margin: 0px 0 0 170px;
+    float: left; }
+    .editor .importbox [class*='import-'] {
+      position: relative;
+      height: 40px;
+      padding-left: 10px;
+      margin-top: 10px; }
+    .editor .importbox input[type="text"] {
+      width: 100px;
+      position: absolute;
+      top: 0;
+      left: 50px;
+      border-radius: 5px;
+      height: 30px;
+      line-height: 20px;
+      font-size: 20px;
+      color: #333; }
+      .editor .importbox input[type="text"]:focus {
+        outline: none; }
+  .editor .cover {
+    position: fixed;
+    z-index: 999;
+    width: 500px;
+    overflow-y: scroll;
+    height: 300px;
+    top: 150px;
+    left: calc(50% - 250px);
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 0 3px 3px #666; }
+    .editor .cover .close {
+      top: 0;
+      right: 0;
+      color: #000; }
+    .editor .cover:hover .close {
+      display: block; }
+    .editor .cover::selection {
+      background-color: pink; }
+    .editor .cover::-moz-selection {
+      background-color: pink; }
+    .editor .cover:focus {
+      outline: none; }
+  .editor .import-tip {
+    color: red; }
+  .editor .close {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: none;
+    cursor: pointer; }
+    .editor .close:hover {
+      color: #e6155a; }
+  .editor button {
+    width: 80px;
+    height: 30px;
+    background-color: #d9d9d9;
+    border-radius: 3px;
+    border: 0;
+    margin: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s; }
+    .editor button:hover {
+      background-color: orange;
+      color: #fff; }
+    .editor button:focus {
+      outline: none; }
+  .editor input[type='range'] {
+    -webkit-appearance: none;
+    display: inline-block;
+    margin: 0 10px; }
+    .editor input[type='range']::-webkit-slider-runnable-track {
+      width: 300px;
+      height: 5px;
+      background-color: #ddd;
+      border: none;
+      border-radius: 3px; }
+    .editor input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      margin-top: -4px;
+      background-color: orange; }
+    .editor input[type='range']:focus {
+      outline: none; }
+    .editor input[type='range']::-moz-range-track {
+      height: 5px;
+      background: #ddd;
+      border: none;
+      border-radius: 3px; }
+    .editor input[type='range']::-moz-range-thumb {
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: orange; }
+    .editor input[type='range']::-moz-focusring {
+      outline: none;
+      border: 0; }
+    .editor input[type='range']::focus::-moz-range-track {
+      border: 0;
+      outline: none;
+      background: #ccc; }
+    .editor input[type='range']::-ms-track {
+      width: 300px;
+      height: 5px;
+      background: transparent;
+      border-color: transparent;
+      border-width: 6px 0;
+      color: transparent; }
+    .editor input[type='range']::-ms-fill-lower {
+      background: #777;
+      border-radius: 10px; }
+    .editor input[type='range']::-ms-fill-upper {
+      background: #ddd;
+      border-radius: 10px; }
+    .editor input[type='range']::-ms-thumb {
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: orange; }
+    .editor input[type='range']:focus::-ms-fill-lower {
+      background: #888; }
+    .editor input[type='range']:focus::-ms-fill-upper {
+      background: #ccc; }
+
+/*# sourceMappingURL=index.css.map */
